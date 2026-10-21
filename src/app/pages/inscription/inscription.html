@@ -1,0 +1,67 @@
+<div class="page-inscription">
+  <section class="carte">
+    <h2>Créer un compte</h2>
+    <p class="sous-titre">Remplissez les informations ci-dessous</p>
+
+    <form (ngSubmit)="creerCompte()" novalidate>
+      <div class="ligne">
+        <div class="champ">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" placeholder="Votre nom"
+                 maxlength="50" [(ngModel)]="nom">
+        </div>
+        <div class="champ">
+          <label for="prenom">Prénom</label>
+          <input id="prenom" name="prenom" type="text" placeholder="Votre prénom"
+                 maxlength="50" [(ngModel)]="prenom">
+        </div>
+      </div>
+
+      <div class="champ">
+        <label for="identifiant">Identifiant</label>
+        <input id="identifiant" name="identifiant" type="text"
+               placeholder="Choisissez un identifiant" autocomplete="username"
+               maxlength="30" [(ngModel)]="identifiant">
+      </div>
+
+      <div class="ligne">
+        <div class="champ">
+          <label for="filiere">Filière</label>
+          <select id="filiere" name="filiere" [(ngModel)]="filiere">
+            <option value="">Choisir</option>
+            <option>Informatique</option>
+          </select>
+        </div>
+        <div class="champ">
+          <label for="niveau">Niveau</label>
+          <select id="niveau" name="niveau" [(ngModel)]="niveau">
+            <option value="">Choisir</option>
+            <option>Licence 1</option>
+            <option>Licence 2</option>
+            <option>Licence 3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="champ">
+        <label for="mdp">Mot de passe</label>
+        <input id="mdp" name="mdp" type="password" placeholder="8 caractères minimum"
+               autocomplete="new-password" maxlength="100" [(ngModel)]="mdp">
+      </div>
+
+      <div class="champ">
+        <label for="mdp2">Confirmer le mot de passe</label>
+        <input id="mdp2" name="mdp2" type="password" placeholder="Retapez le mot de passe"
+               autocomplete="new-password" maxlength="100" [(ngModel)]="mdp2">
+      </div>
+
+      @if (erreur) {
+        <p class="erreur">{{ erreur }}</p>
+      }
+
+      <button type="submit" class="bouton">Créer mon compte</button>
+    </form>
+
+    <p class="pied">Vous avez déjà un compte ? <a routerLink="/connexion">Se connecter</a></p>
+  </section>
+</div>

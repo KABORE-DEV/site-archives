@@ -1,0 +1,134 @@
+.cadre {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ----- Menu ----- */
+.menu {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 24px 16px;
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  padding: 0 8px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.marque strong {
+  font-size: 18px;
+  color: #1d4ed8;
+}
+
+nav {
+  flex: 1;
+}
+
+nav a {
+  display: block;
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  color: #374151;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background: #f3f4f6;
+}
+
+nav a.actif {
+  background: #e0e9ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.deconnexion {
+  padding: 12px 16px;
+  color: #6b7280;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.deconnexion:hover {
+  color: #dc2626;
+}
+
+/* ----- Zone de droite ----- */
+.droite {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.entete {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 12px 24px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cloche {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.utilisateur {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #1d4ed8;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.infos strong {
+  font-size: 13px;
+  color: #111827;
+}
+
+.infos small {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.contenu {
+  flex: 1;
+  background: #f5f7fb;
+  padding: 24px;
+}

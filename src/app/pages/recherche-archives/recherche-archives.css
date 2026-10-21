@@ -1,0 +1,155 @@
+/* ----- Titre ----- */
+.entete-page h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.entete-page p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ----- Filtres ----- */
+.filtres {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.champ label {
+  font-size: 13px;
+  color: #374151;
+}
+
+select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+}
+
+select:focus {
+  outline: none;
+  border-color: #1d4ed8;
+}
+
+/* ----- Bouton ----- */
+.bouton {
+  padding: 10px 18px;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.bouton:hover {
+  background: #1e40af;
+}
+
+/* ----- Résultats ----- */
+.resultats {
+  display: block;
+  width: 100%;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.resultats h2 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.archive {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.archive:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.archive-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.archive-infos strong {
+  font-size: 14px;
+  color: #111827;
+}
+
+.archive-infos small {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.badge {
+  padding: 2px 10px;
+  background: #e0ecff;
+  color: #1d4ed8;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+/* ----- Mobile ----- */
+@media (max-width: 600px) {
+  .archive {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .archive .bouton {
+    width: 100%;
+  }
+}
+.barre-recherche {
+  margin-bottom: 16px;
+}
+
+.barre-recherche input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  background: white;
+}
+
+.barre-recherche input:focus {
+  outline: none;
+  border-color: #1d4ed8;
+}

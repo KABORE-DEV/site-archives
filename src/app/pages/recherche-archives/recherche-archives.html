@@ -1,0 +1,66 @@
+<section class="entete-page">
+  <h1>Rechercher une archive</h1>
+  <p>Trouvez facilement vos devoirs, tests et épreuves en quelques clics.</p>
+</section>
+
+<div class="barre-recherche">
+  <input type="text" name="recherche" placeholder="Rechercher un module (ex : Algorithmique)"
+         maxlength="50">
+</div>
+
+<section class="filtres">
+  
+
+<section class="filtres">
+  <div class="champ">
+    <label for="filiere">Filière (Informatique)</label>
+    <select id="filiere">
+      <option>Genie Informatique</option>
+      <option >Reseaux et systemes</option>
+      <option >Reseaux et telecommunication</option>
+      <option >ELectricité Industrielle</option>
+      <option > Electronique electrotechnique et Automatisme</option>
+    </select>
+  </div>
+
+  <div class="champ">
+    <label for="niveau">Niveau</label>
+    <select id="niveau">
+      <option>Licence 1</option>
+      <option>Licence 2</option>
+      <option>Licence 3</option>
+    </select>
+  </div>
+
+  <div class="champ">
+    <label for="annee">Année académique</label>
+    <select id="annee">
+      <option>2024 - 2025</option>
+      <option>2023 - 2024</option>
+    </select>
+  </div>
+
+  <div class="champ">
+    <label for="module">Module</label>
+    <select id="module">
+      <option>Tous les modules</option>
+   </select>
+  </div>
+
+  <button type="button" class="bouton">Rechercher</button>
+</section>
+
+<section class="resultats">
+  <h2>Résultats ({{ resultats.length }})</h2>
+
+  @for (r of resultats; track r.titre) {
+    <article class="archive">
+      <div class="archive-infos">
+        <strong>{{ r.titre }}</strong>
+        <span class="badge">{{ r.type }}</span>
+        <small>{{ r.details }}</small>
+      </div>
+      <button type="button" class="bouton">Télécharger</button>
+    </article>
+  }
+</section>

@@ -1,0 +1,38 @@
+<div class="cadre">
+
+  <aside class="menu">
+    <div class="marque">
+      <img src="/images/logo.png" alt="Logo U-AUBEN" class="logo">
+      <strong>U-AUBEN</strong>
+    </div>
+
+    <nav>
+      <a routerLink="/tableau-de-bord" routerLinkActive="actif">Accueil</a>
+      <a routerLink="/archives" routerLinkActive="actif">Mes archives</a>
+      <a routerLink="/programme" routerLinkActive="actif">Programme</a>
+      <a routerLink="/mes-documents" routerLinkActive="actif">Docs téléchargés</a>
+      <a routerLink="/mon-profil" routerLinkActive="actif">Mon profil</a>
+    </nav>
+
+    <a routerLink="/connexion" class="deconnexion">Déconnexion</a>
+  </aside>
+
+  <div class="droite">
+    <header class="entete">
+      <button type="button" class="cloche" aria-label="Notifications">🔔</button>
+
+      <div class="utilisateur">
+        <span class="avatar">{{ utilisateur.initiales }}</span>
+        <div class="infos">
+          <strong>{{ utilisateur.nom }}</strong>
+          <small>{{ utilisateur.role }}</small>
+        </div>
+      </div>
+    </header>
+
+    <main class="contenu">
+      <router-outlet />
+    </main>
+  </div>
+
+</div>

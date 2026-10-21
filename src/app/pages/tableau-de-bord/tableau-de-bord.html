@@ -1,0 +1,42 @@
+<section class="bienvenue">
+  <div>
+    <h1>Bonjour, {{ prenom }} </h1>
+    <p>Voici un aperçu de votre espace étudiant.</p>
+  </div>
+  <p class="citation">« La connaissance est la clé d'un meilleur avenir. »</p>
+</section>
+
+<section class="bandeau">
+  <div class="bandeau-texte">
+    <p>Consultez vos archives et préparez vos démarches en toute simplicité.</p>
+    <a class="bandeau-bouton" routerLink="/archives">Rechercher maintenant →</a>
+  </div>
+  <img class="bandeau-image" src="/images/bandeau.png" alt="">
+</section>
+
+<div class="grille">
+
+  <section class="bloc">
+    <h2>Accès rapide</h2>
+    <div class="acces">
+      @for (a of accesRapides; track a.titre) {
+        <a class="acces-carte" [routerLink]="a.lien">
+          <strong>{{ a.titre }}</strong>
+          <span>{{ a.detail }}</span>
+        </a>
+      }
+    </div>
+  </section>
+
+  <section class="bloc">
+    <h2>Dernières actualités</h2>
+    @for (n of actualites; track n.titre) {
+      <article class="actu">
+        <strong>{{ n.titre }}</strong>
+        <p>{{ n.texte }}</p>
+        <small>{{ n.date }}</small>
+      </article>
+    }
+  </section>
+
+</div>

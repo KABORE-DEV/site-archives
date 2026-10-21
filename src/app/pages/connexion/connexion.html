@@ -1,0 +1,74 @@
+<div class="page-connexion">
+
+ <section class="bienvenue">
+  <div class="marque">
+    <img src="/images/logo.png" alt="Logo U-AUBEN" class="logo">
+    <div>
+      <strong>U-AUBEN</strong>
+      <span>Université Aube Nouvelle</span>
+      <small>Département hight-tech</small>
+    </div>
+  </div>
+
+  <h1>
+    Bienvenue sur la plateforme des
+    <span class="accent">archives universitaires</span>
+  </h1>
+
+  <div class="trait"></div>
+
+  <p>
+    Accédez facilement aux devoirs, aux épreuves et aux ressources
+    académiques de votre filière.
+  </p>
+
+  <ul class="points">
+    <li>Devoirs, tests et épreuves au même endroit</li>
+    <li>Téléchargement rapide de vos documents</li>
+    <li>Programme de l'année toujours à jour</li>
+  </ul>
+</section>
+
+  <section class="carte">
+    <h2>Se connecter</h2>
+    <p class="sous-titre">Entrez vos identifiants pour accéder à votre espace</p>
+
+   <form (ngSubmit)="seConnecter()" novalidate>
+  <div class="champ">
+    <label for="identifiant">Identifiant</label>
+    <input id="identifiant" name="identifiant" type="text"
+           placeholder="Identifiant ou adresse e-mail"
+           autocomplete="username" maxlength="50" [(ngModel)]="identifiant">
+  </div>
+
+  <div class="champ">
+    <label for="mdp">Mot de passe</label>
+    <div class="champ-mdp">
+      <input id="mdp" name="mdp"
+             [type]="afficherMdp ? 'text' : 'password'"
+             placeholder="Votre mot de passe"
+             autocomplete="current-password" maxlength="100" [(ngModel)]="mdp">
+      <button type="button" class="oeil" (click)="basculerMdp()">
+        {{ afficherMdp ? 'Masquer' : 'Afficher' }}
+      </button>
+    </div>
+  </div>
+
+  <div class="options">
+    <label class="case">
+      <input type="checkbox" name="souvenir" [(ngModel)]="souvenir"> Se souvenir de moi
+    </label>
+    <a href="#">Mot de passe oublié ?</a>
+  </div>
+
+  @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+  }
+
+  <button type="submit" class="bouton">Se connecter</button>
+</form>
+
+    <p class="pied">Vous n'avez pas de compte ? <a routerLink="/inscription">Créer un compte</a></p>
+  </section>
+
+</div>
