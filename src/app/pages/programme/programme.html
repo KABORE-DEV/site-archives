@@ -1,1 +1,48 @@
-<p>programme works!</p>
+<section class="entete-page">
+  <h1>Programme de l'année</h1>
+  <p>Choisissez la filière et le niveau pour voir le programme.</p>
+</section>
+
+<section class="bloc">
+
+  <div class="champ">
+    <label for="filiere">Filière</label>
+    <select id="filiere" name="filiere" [(ngModel)]="dossierActif" (ngModelChange)="photoAbsente = false">
+      @for (f of filieres; track f.dossier) {
+        <option [value]="f.dossier">{{ f.nom }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="niveaux">
+    @for (n of niveaux; track n) {
+      <button type="button" class="niveau"
+              [class.actif]="n === niveauActif"
+              (click)="changerNiveau(n); photoAbsente = false">
+        {{ n }}
+      </button>
+    }
+  </div>
+
+  <div class="onglets">
+    @for (s of semestres(); track s) {
+      <button type="button" class="onglet"
+              [class.actif]="s === semestreActif"
+              (click)="semestreActif = s; photoAbsente = false">
+        {{ s }}
+      </button>
+    }
+  </div>
+
+  @if (!photoAbsente) {
+    <a [href]="photoDuSemestre()" target="_blank" rel="noopener">
+      <img class="photo-programme" [src]="photoDuSemestre()"
+           [alt]="'Programme du ' + semestreActif"
+           (error)="photoAbsente = true">
+    </a>
+    <p class="astuce">Cliquez sur l'image pour l'agrandir.</p>
+  } @else {
+    <p class="vide">Aucun programme pour ce semestre.</p>
+  }
+
+</section>

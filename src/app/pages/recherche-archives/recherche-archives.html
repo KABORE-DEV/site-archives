@@ -5,27 +5,34 @@
 
 <div class="barre-recherche">
   <input type="text" name="recherche" placeholder="Rechercher un module (ex : Algorithmique)"
-         maxlength="50">
+         maxlength="50" [(ngModel)]="recherche">
 </div>
 
 <section class="filtres">
-  
-
-<section class="filtres">
   <div class="champ">
-    <label for="filiere">Filière (Informatique)</label>
-    <select id="filiere">
-      <option>Genie Informatique</option>
-      <option >Reseaux et systemes</option>
-      <option >Reseaux et telecommunication</option>
-      <option >ELectricité Industrielle</option>
-      <option > Electronique electrotechnique et Automatisme</option>
+    <label for="filiere">Filière</label>
+    <select id="filiere" name="filiere" [ngModel]="filiere" (ngModelChange)="changerFiliere($event)">
+      <option value="Toutes">Toutes les filières</option>
+      @for (f of filieres; track f) {
+        <option [value]="f">{{ f }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="champ">
+    <label for="module">Module</label>
+    <select id="module" name="module" [(ngModel)]="module" [disabled]="filiere === 'Toutes'">
+      <option value="Tous">Tous les modules</option>
+      @for (m of modules(); track m) {
+        <option [value]="m">{{ m }}</option>
+      }
     </select>
   </div>
 
   <div class="champ">
     <label for="niveau">Niveau</label>
-    <select id="niveau">
+    <select id="niveau" name="niveau" [(ngModel)]="niveau">
+      <option value="Tous">Tous les niveaux</option>
       <option>Licence 1</option>
       <option>Licence 2</option>
       <option>Licence 3</option>
@@ -34,33 +41,40 @@
 
   <div class="champ">
     <label for="annee">Année académique</label>
-    <select id="annee">
+    <select id="annee" name="annee" [(ngModel)]="annee">
+      <option value="Toutes">Toutes les années</option>
       <option>2024 - 2025</option>
       <option>2023 - 2024</option>
     </select>
-  </div>
-
-  <div class="champ">
-    <label for="module">Module</label>
-    <select id="module">
-      <option>Tous les modules</option>
-   </select>
   </div>
 
   <button type="button" class="bouton">Rechercher</button>
 </section>
 
 <section class="resultats">
-  <h2>Résultats ({{ resultats.length }})</h2>
+  <h2>Résultats ({{ resultats().length }})</h2>
 
-  @for (r of resultats; track r.titre) {
+  <div class="onglets">
+    @for (o of onglets; track o) {
+      <button type="button"
+              class="onglet"
+              [class.actif]="o === ongletActif"
+              (click)="ongletActif = o">
+        {{ o }}
+      </button>
+    }
+  </div>
+
+  @for (r of resultats(); track r.titre) {
     <article class="archive">
       <div class="archive-infos">
-        <strong>{{ r.titre }}</strong>
+        <a class="lien-module" [routerLink]="['/modules', r.module]">{{ r.titre }}</a>
         <span class="badge">{{ r.type }}</span>
-        <small>{{ r.details }}</small>
+        <small>{{ r.niveau }} - {{ r.semestre }} - {{ r.annee }}</small>
       </div>
-      <button type="button" class="bouton">Télécharger</button>
+      <a class="bouton" [href]="r.fichier" download>Télécharger</a>
     </article>
+  } @empty {
+    <p class="vide">Aucune archive trouvée.</p>
   }
 </section>

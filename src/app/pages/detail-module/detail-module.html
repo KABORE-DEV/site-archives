@@ -1,1 +1,27 @@
-<p>detail-module works!</p>
+<a routerLink="/archives" class="retour">← Retour aux archives</a>
+
+<h1>{{ module }}</h1>
+
+<section class="bloc">
+  <div class="onglets">
+    @for (o of onglets; track o) {
+      <button type="button" class="onglet"
+              [class.actif]="o === ongletActif"
+              (click)="ongletActif = o">
+        {{ o }}
+      </button>
+    }
+  </div>
+
+  @for (r of resultats(); track r.titre) {
+    <article class="archive">
+      <div class="archive-infos">
+        <strong>{{ r.titre }}</strong>
+        <small>{{ r.date }}</small>
+      </div>
+      <a class="bouton" [href]="r.fichier" download>Télécharger</a>
+    </article>
+  } @empty {
+    <p class="vide">Aucune archive dans cette catégorie.</p>
+  }
+</section>

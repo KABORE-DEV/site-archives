@@ -153,3 +153,45 @@ select:focus {
   outline: none;
   border-color: #1d4ed8;
 }
+.onglets {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.onglet {
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 14px;
+  font-family: inherit;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.onglet:hover {
+  color: #111827;
+}
+
+.onglet.actif {
+  color: #1d4ed8;
+  border-bottom-color: #1d4ed8;
+  font-weight: 600;
+}
+a.bouton {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+.lien-module {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+}
+
+.lien-module:hover {
+  color: #1d4ed8;
+}
