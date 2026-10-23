@@ -13,8 +13,8 @@
     <label for="filiere">Filière</label>
     <select id="filiere" name="filiere" [ngModel]="filiere" (ngModelChange)="changerFiliere($event)">
       <option value="Toutes">Toutes les filières</option>
-      @for (f of filieres; track f) {
-        <option [value]="f">{{ f }}</option>
+      @for (f of donnees.filieres; track f.dossier) {
+        <option [value]="f.nom">{{ f.nom }}</option>
       }
     </select>
   </div>
@@ -65,14 +65,14 @@
     }
   </div>
 
-  @for (r of resultats(); track r.titre) {
+  @for (r of resultats(); track r.id) {
     <article class="archive">
       <div class="archive-infos">
         <a class="lien-module" [routerLink]="['/modules', r.module]">{{ r.titre }}</a>
         <span class="badge">{{ r.type }}</span>
         <small>{{ r.niveau }} - {{ r.semestre }} - {{ r.annee }}</small>
       </div>
-      <a class="bouton" [href]="r.fichier" download>Télécharger</a>
+      <a class="bouton" [href]="r.fichier" download (click)="telecharger(r)">Télécharger</a>
     </article>
   } @empty {
     <p class="vide">Aucune archive trouvée.</p>

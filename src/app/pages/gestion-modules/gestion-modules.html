@@ -1,0 +1,101 @@
+<section class="entete-page">
+  <h1>Gestion des modules</h1>
+  <p>Ajoutez les modules de chaque filière. Ils alimentent la recherche et l'ajout d'archives.</p>
+</section>
+
+<form class="carte" (ngSubmit)="ajouter()" novalidate>
+  <div class="champ">
+    <label for="nom">Nom du module</label>
+    <input id="nom" name="nom" type="text" maxlength="80"
+           placeholder="Ex : Programmation Web" [(ngModel)]="nom">
+  </div>
+
+  <div class="champ">
+    <label for="filiere">Filière</label>
+    <select id="filiere" name="filiere" [(ngModel)]="filiere">
+      <option value="">Choisir</option>
+      @for (f of donnees.filieres; track f.dossier) {
+        <option [value]="f.nom">{{ f.nom }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="ligne">
+    <div class="champ">
+      <label for="niveau">Niveau</label>
+      <select id="niveau" name="niveau" [ngModel]="niveau" (ngModelChange)="changerNiveau($event)">
+        <option value="">Choisir</option>
+        @for (n of donnees.niveaux; track n) {
+          <option [value]="n">{{ n }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="semestre">Semestre</label>
+      <select id="semestre" name="semestre" [(ngModel)]="semestre" [disabled]="!niveau">
+        <option value="">Choisir</option>
+        @for (s of semestres(); track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="credits">Crédits</label>
+      <input id="credits" name="credits" type="number" min="1" max="30" [(ngModel)]="credits">
+    </div>
+  </div>
+
+  @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+  }
+  @if (succes) {
+    <p class="succes">{{ succes }}</p>
+  }
+
+  <div class="actions">
+    <button type="submit" class="bouton">Ajouter le module</button>
+  </div>
+</form>
+
+<section class="bloc">
+  <div class="champ filtre">
+    <label for="filtre">Afficher la filière</label>
+    <select id="filtre" name="filtre" [(ngModel)]="filiereFiltre">
+      <option value="Toutes">Toutes les filières</option>
+      @for (f of donnees.filieres; track f.dossier) {
+        <option [value]="f.nom">{{ f.nom }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="defile">
+    <table>
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>Filière</th>
+          <th>Niveau</th>
+          <th>Semestre</th>
+          <th>Crédits</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (m of liste(); track m.id) {
+          <tr>
+            <td>{{ m.nom }}</td>
+            <td>{{ m.filiere }}</td>
+            <td>{{ m.niveau }}</td>
+            <td>{{ m.semestre }}</td>
+            <td>{{ m.credits }}</td>
+            <td><button type="button" class="retirer" (click)="supprimer(m)">Supprimer</button></td>
+          </tr>
+        } @empty {
+          <tr><td colspan="6" class="vide">Aucun module pour cette filière.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

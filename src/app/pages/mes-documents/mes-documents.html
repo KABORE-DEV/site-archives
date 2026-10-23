@@ -1,1 +1,26 @@
-<p>mes-documents works!</p>
+<section class="entete">
+  <div>
+    <h1>Docs téléchargés</h1>
+    <p>Retrouvez les fichiers que vous avez téléchargés.</p>
+  </div>
+  @if (liste().length) {
+    <button type="button" class="bouton-clair" (click)="vider()">Vider la liste</button>
+  }
+</section>
+
+<section class="bloc">
+  @for (d of liste(); track d.titre + d.fichier) {
+    <article class="document">
+      <div class="infos">
+        <strong>{{ d.titre }}</strong>
+        <small>Téléchargé le {{ d.date }}</small>
+      </div>
+      <a class="bouton" [href]="d.fichier" download>Télécharger à nouveau</a>
+    </article>
+  } @empty {
+    <p class="vide">
+      Vous n'avez encore rien téléchargé.
+      <a routerLink="/archives">Rechercher une archive</a>
+    </p>
+  }
+</section>

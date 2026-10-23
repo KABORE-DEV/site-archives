@@ -1,1 +1,45 @@
-<p>mon-profil works!</p>
+<section class="entete-page">
+  <h1>Mon profil</h1>
+  <p>Consultez vos informations et changez votre mot de passe.</p>
+</section>
+
+<section class="carte identite">
+  <span class="avatar">{{ initiales }}</span>
+  <div>
+    <strong>{{ prenom }} {{ nom }}</strong>
+    <small>{{ role }}</small>
+  </div>
+</section>
+
+<form class="carte" (ngSubmit)="changerMotDePasse()" novalidate>
+  <h2>Changer le mot de passe</h2>
+
+  <div class="champ">
+    <label for="ancien">Mot de passe actuel</label>
+    <input id="ancien" name="ancien" type="password" autocomplete="current-password"
+           maxlength="100" [(ngModel)]="ancien">
+  </div>
+
+  <div class="champ">
+    <label for="nouveau">Nouveau mot de passe</label>
+    <input id="nouveau" name="nouveau" type="password" autocomplete="new-password"
+           placeholder="8 caractères minimum" maxlength="100" [(ngModel)]="nouveau">
+  </div>
+
+  <div class="champ">
+    <label for="confirmation">Confirmer le nouveau mot de passe</label>
+    <input id="confirmation" name="confirmation" type="password" autocomplete="new-password"
+           maxlength="100" [(ngModel)]="confirmation">
+  </div>
+
+  @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+  }
+  @if (succes) {
+    <p class="succes">{{ succes }}</p>
+  }
+
+  <div class="actions">
+    <button type="submit" class="bouton">Enregistrer</button>
+  </div>
+</form>

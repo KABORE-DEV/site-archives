@@ -1,1 +1,101 @@
-<p>gestion-utilisateurs works!</p>
+<section class="entete">
+  <div>
+    <h1>Gestion des utilisateurs</h1>
+    <p>Gérez les comptes et les rôles des utilisateurs de la plateforme.</p>
+  </div>
+  <button type="button" class="bouton" (click)="formulaireOuvert = !formulaireOuvert">
+    {{ formulaireOuvert ? 'Fermer' : 'Ajouter un utilisateur' }}
+  </button>
+</section>
+
+@if (formulaireOuvert) {
+  <form class="carte" (ngSubmit)="ajouter()" novalidate>
+    <div class="ligne">
+      <div class="champ">
+        <label for="prenom">Prénom</label>
+        <input id="prenom" name="prenom" type="text" maxlength="50" [(ngModel)]="prenom">
+      </div>
+      <div class="champ">
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" maxlength="50" [(ngModel)]="nom">
+      </div>
+    </div>
+
+    <div class="ligne">
+      <div class="champ">
+        <label for="identifiant">Identifiant</label>
+        <input id="identifiant" name="identifiant" type="text" maxlength="30"
+               placeholder="Ex : chef.reseaux" [(ngModel)]="identifiant">
+      </div>
+      <div class="champ">
+        <label for="role">Rôle</label>
+        <select id="role" name="role" [(ngModel)]="role">
+          @for (r of roles; track r.valeur) {
+            <option [value]="r.valeur">{{ r.texte }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    @if (erreur) {
+      <p class="erreur">{{ erreur }}</p>
+    }
+    @if (succes) {
+      <p class="succes">{{ succes }}</p>
+    }
+
+    <div class="actions">
+      <button type="submit" class="bouton">Créer le compte</button>
+    </div>
+  </form>
+}
+
+<section class="bloc">
+  <div class="filtres">
+    <input class="recherche" type="text" name="recherche" maxlength="50"
+           placeholder="Rechercher un utilisateur" [(ngModel)]="recherche">
+    <select name="roleFiltre" [(ngModel)]="roleFiltre" aria-label="Filtrer par rôle">
+      <option value="Tous">Tous les rôles</option>
+      @for (r of roles; track r.valeur) {
+        <option [value]="r.valeur">{{ r.texte }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="defile">
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Identifiant</th>
+          <th>Rôle</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (c of liste(); track c.id) {
+          <tr>
+            <td>{{ c.nom }} {{ c.prenom }}</td>
+            <td>{{ c.identifiant }}</td>
+            <td>
+              <select [ngModel]="c.role" (ngModelChange)="changerRole(c, $event)"
+                      [disabled]="estMoi(c)" [attr.aria-label]="'Rôle de ' + c.prenom + ' ' + c.nom">
+                @for (r of roles; track r.valeur) {
+                  <option [value]="r.valeur">{{ r.texte }}</option>
+                }
+              </select>
+            </td>
+            <td>
+              <button type="button" class="statut" [class.inactif]="!c.actif"
+                      [disabled]="estMoi(c)" (click)="basculer(c)">
+                {{ c.actif ? 'Actif' : 'Inactif' }}
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="4" class="vide">Aucun utilisateur trouvé.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -7,14 +7,12 @@
     </div>
 
     <nav>
-      <a routerLink="/tableau-de-bord" routerLinkActive="actif">Accueil</a>
-      <a routerLink="/archives" routerLinkActive="actif">Mes archives</a>
-      <a routerLink="/programme" routerLinkActive="actif">Programme</a>
-      <a routerLink="/mes-documents" routerLinkActive="actif">Docs téléchargés</a>
-      <a routerLink="/mon-profil" routerLinkActive="actif">Mon profil</a>
+      @for (l of menu; track l.lien) {
+        <a [routerLink]="l.lien" routerLinkActive="actif">{{ l.texte }}</a>
+      }
     </nav>
 
-    <a routerLink="/connexion" class="deconnexion">Déconnexion</a>
+    <button type="button" class="deconnexion" (click)="deconnexion()">Déconnexion</button>
   </aside>
 
   <div class="droite">

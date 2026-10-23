@@ -1,0 +1,79 @@
+<section class="entete-page">
+  <h1>Ajouter un programme</h1>
+  <p>Choisissez la filière, le niveau et le semestre, puis déposez la photo du programme.</p>
+</section>
+
+<form class="carte" (ngSubmit)="ajouter()" novalidate>
+
+  <div class="champ">
+    <label for="filiere">Filière</label>
+    <select id="filiere" name="filiere" [(ngModel)]="dossier">
+      <option value="">Choisir</option>
+      @for (f of donnees.filieres; track f.dossier) {
+        <option [value]="f.dossier">{{ f.nom }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="ligne">
+    <div class="champ">
+      <label for="niveau">Niveau</label>
+      <select id="niveau" name="niveau" [ngModel]="niveau" (ngModelChange)="changerNiveau($event)">
+        <option value="">Choisir</option>
+        @for (n of donnees.niveaux; track n) {
+          <option [value]="n">{{ n }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="semestre">Semestre</label>
+      <select id="semestre" name="semestre" [(ngModel)]="semestre" [disabled]="!niveau">
+        <option value="">Choisir</option>
+        @for (s of semestres(); track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div class="champ">
+    <label>Photo du programme</label>
+
+    <label class="zone-depot" [class.survol]="survol"
+           (dragover)="survoler($event)"
+           (dragleave)="survol = false"
+           (drop)="deposer($event)">
+      <input type="file" hidden accept=".jpg,.jpeg,.png" (change)="choisirFichier($event)">
+      @if (apercu) {
+        <img [src]="apercu" alt="Aperçu du programme">
+      } @else {
+        <span>Glissez-déposez une photo ici ou <u>cliquez pour parcourir</u></span>
+        <small>Formats acceptés : JPG, PNG (max 5 Mo)</small>
+      }
+    </label>
+
+    @if (fichier) {
+      <div class="fichier-choisi">
+        <span>{{ fichier.name }} ({{ (fichier.size / 1024 / 1024).toFixed(2) }} Mo)</span>
+        <button type="button" class="retirer" (click)="retirerFichier()">Retirer</button>
+      </div>
+    }
+
+    @if (erreurFichier) {
+      <p class="erreur">{{ erreurFichier }}</p>
+    }
+  </div>
+
+  @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+  }
+  @if (succes) {
+    <p class="succes">{{ succes }} <a routerLink="/programme">Voir le programme</a></p>
+  }
+
+  <div class="actions">
+    <button type="submit" class="bouton">Enregistrer le programme</button>
+  </div>
+
+</form>

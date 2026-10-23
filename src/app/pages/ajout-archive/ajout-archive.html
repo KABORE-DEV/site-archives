@@ -1,1 +1,124 @@
-<p>ajout-archive works!</p>
+<section class="entete-page">
+  <h1>Ajouter une archive</h1>
+  <p>Remplissez les informations ci-dessous pour ajouter une nouvelle épreuve.</p>
+</section>
+
+<form class="carte" (ngSubmit)="ajouter()" novalidate>
+
+  <div class="ligne">
+    <div class="champ">
+      <label for="filiere">Filière</label>
+      <select id="filiere" name="filiere" [ngModel]="filiere" (ngModelChange)="changerFiliere($event)">
+        <option value="">Choisir</option>
+        @for (f of donnees.filieres; track f.dossier) {
+          <option [value]="f.nom">{{ f.nom }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="niveau">Niveau</label>
+      <select id="niveau" name="niveau" [ngModel]="niveau" (ngModelChange)="changerNiveau($event)">
+        <option value="">Choisir</option>
+        @for (n of donnees.niveaux; track n) {
+          <option [value]="n">{{ n }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div class="ligne">
+    <div class="champ">
+      <label for="semestre">Semestre</label>
+      <select id="semestre" name="semestre" [(ngModel)]="semestre" [disabled]="!niveau">
+        <option value="">Choisir</option>
+        @for (s of semestres(); track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="annee">Année académique</label>
+      <select id="annee" name="annee" [(ngModel)]="annee">
+        <option value="">Choisir</option>
+        @for (a of donnees.annees; track a) {
+          <option [value]="a">{{ a }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <div class="champ">
+    <label for="module">Module</label>
+    <select id="module" name="module" [(ngModel)]="module" [disabled]="!filiere || !niveau">
+      <option value="">{{ filiere && niveau ? 'Choisir' : 'Choisissez d\'abord la filière et le niveau' }}</option>
+      @for (m of modules(); track m) {
+        <option [value]="m">{{ m }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="ligne">
+    <div class="champ">
+      <label for="type">Type d'archive</label>
+      <select id="type" name="type" [(ngModel)]="type">
+        <option value="">Choisir</option>
+        @for (t of donnees.types; track t) {
+          <option [value]="t">{{ t }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="titre">Titre</label>
+      <input id="titre" name="titre" type="text" maxlength="100"
+             placeholder="Ex : Algorithmique - Devoir 1" [(ngModel)]="titre">
+    </div>
+  </div>
+
+  <div class="champ">
+    <label for="description">Description (facultatif)</label>
+    <textarea id="description" name="description" rows="3" maxlength="300"
+              placeholder="Ajoutez une description" [(ngModel)]="description"></textarea>
+  </div>
+
+  <div class="champ">
+    <label>Fichier</label>
+
+    <label class="zone-depot" [class.survol]="survol"
+           (dragover)="survoler($event)"
+           (dragleave)="survol = false"
+           (drop)="deposer($event)">
+      <input type="file" hidden
+             accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+             (change)="choisirFichier($event)">
+      <span>Glissez-déposez un fichier ici ou <u>cliquez pour parcourir</u></span>
+      <small>Formats acceptés : PDF, DOC, DOCX, JPG, PNG (max 10 Mo)</small>
+    </label>
+
+    @if (fichier) {
+      <div class="fichier-choisi">
+        <span>{{ fichier.name }} ({{ (fichier.size / 1024 / 1024).toFixed(2) }} Mo)</span>
+        <button type="button" class="retirer" (click)="retirerFichier()">Retirer</button>
+      </div>
+    }
+
+    @if (erreurFichier) {
+      <p class="erreur">{{ erreurFichier }}</p>
+    }
+  </div>
+
+  @if (erreur) {
+    <p class="erreur">{{ erreur }}</p>
+  }
+  @if (succes) {
+    <p class="succes">{{ succes }}</p>
+  }
+
+  <div class="actions">
+    <button type="button" class="bouton-clair" (click)="annuler()">Annuler</button>
+    <button type="submit" class="bouton">Ajouter l'archive</button>
+  </div>
+
+</form>

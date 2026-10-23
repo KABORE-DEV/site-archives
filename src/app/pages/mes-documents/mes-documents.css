@@ -1,0 +1,107 @@
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.entete h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.entete p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.bloc {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.document {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.document:first-child {
+  padding-top: 0;
+}
+
+.document:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infos strong {
+  font-size: 14px;
+  color: #111827;
+}
+
+.infos small {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.bouton {
+  padding: 10px 18px;
+  background: #1d4ed8;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.bouton:hover {
+  background: #1e40af;
+}
+
+.bouton-clair {
+  padding: 10px 18px;
+  background: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.vide {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.vide a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .document {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bouton {
+    text-align: center;
+  }
+}

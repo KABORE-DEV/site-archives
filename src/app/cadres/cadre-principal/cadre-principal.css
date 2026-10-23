@@ -132,3 +132,62 @@ nav a.actif {
   background: #f5f7fb;
   padding: 24px;
 }
+/* ----- Mobile : le menu devient une barre en bas de l'écran ----- */
+@media (max-width: 800px) {
+  .cadre {
+    flex-direction: column;
+  }
+
+  .menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 8px;
+    border-right: none;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .marque {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+    flex: 1;
+    gap: 4px;
+    overflow-x: auto;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .deconnexion {
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .droite {
+    padding-bottom: 64px;
+  }
+
+  .entete {
+    padding: 10px 16px;
+  }
+
+  .contenu {
+    padding: 16px;
+  }
+}

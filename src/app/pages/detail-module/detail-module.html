@@ -13,13 +13,13 @@
     }
   </div>
 
-  @for (r of resultats(); track r.titre) {
+  @for (r of resultats(); track r.id) {
     <article class="archive">
       <div class="archive-infos">
         <strong>{{ r.titre }}</strong>
         <small>{{ r.date }}</small>
       </div>
-      <a class="bouton" [href]="r.fichier" download>Télécharger</a>
+      <a class="bouton" [href]="r.fichier" download (click)="telecharger(r)">Télécharger</a>
     </article>
   } @empty {
     <p class="vide">Aucune archive dans cette catégorie.</p>

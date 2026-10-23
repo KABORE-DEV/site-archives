@@ -1,0 +1,122 @@
+.entete-page h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.entete-page p {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+  margin-bottom: 24px;
+  padding: 28px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.carte h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.identite {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.identite div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.identite strong {
+  font-size: 16px;
+  color: #111827;
+}
+
+.identite small {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #1d4ed8;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.champ label {
+  font-size: 13px;
+  color: #374151;
+}
+
+input {
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1d4ed8;
+}
+
+.erreur {
+  margin: 0;
+  font-size: 13px;
+  color: #dc2626;
+}
+
+.succes {
+  margin: 0;
+  font-size: 13px;
+  color: #16a34a;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bouton {
+  padding: 11px 20px;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.bouton:hover {
+  background: #1e40af;
+}
