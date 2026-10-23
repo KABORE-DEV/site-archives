@@ -195,3 +195,8 @@ a.bouton {
 .lien-module:hover {
   color: #1e40af;
 }
+.vide {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
