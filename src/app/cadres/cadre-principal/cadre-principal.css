@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   background: white;
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid #cbd5e1;
   padding: 24px 16px;
 }
 
@@ -29,7 +29,7 @@
 
 .marque strong {
   font-size: 18px;
-  color: #1d4ed8;
+  color: #1e40af;
 }
 
 nav {
@@ -41,24 +41,24 @@ nav a {
   padding: 12px 16px;
   margin-bottom: 4px;
   border-radius: 8px;
-  color: #374151;
+  color: #1f2937;
   font-size: 14px;
   text-decoration: none;
 }
 
 nav a:hover {
-  background: #f3f4f6;
+  background: #e2e8f0;
 }
 
 nav a.actif {
-  background: #e0e9ff;
-  color: #1d4ed8;
+  background: #cfe0ff;
+  color: #1e40af;
   font-weight: 600;
 }
 
 .deconnexion {
   padding: 12px 16px;
-  color: #6b7280;
+  color: #4b5563;
   font-size: 14px;
   text-decoration: none;
 }
@@ -82,14 +82,19 @@ nav a.actif {
   gap: 20px;
   padding: 12px 24px;
   background: white;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .cloche {
+  display: flex;
   background: none;
   border: none;
-  font-size: 18px;
+  color: #4b5563;
   cursor: pointer;
+}
+
+.cloche:hover {
+  color: #111827;
 }
 
 .utilisateur {
@@ -105,7 +110,7 @@ nav a.actif {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: #1d4ed8;
+  background: #1e40af;
   color: white;
   font-size: 13px;
   font-weight: 600;
@@ -124,12 +129,12 @@ nav a.actif {
 
 .infos small {
   font-size: 12px;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 .contenu {
   flex: 1;
-  background: #f5f7fb;
+  background: #e8edf5;
   padding: 24px;
 }
 /* ----- Mobile : le menu devient une barre en bas de l'écran ----- */
@@ -150,7 +155,7 @@ nav a.actif {
     gap: 4px;
     padding: 6px 8px;
     border-right: none;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid #cbd5e1;
   }
 
   .marque {

@@ -8,7 +8,7 @@
 .entete-page p {
   margin: 0 0 24px;
   font-size: 14px;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 .carte {
@@ -18,7 +18,7 @@
   max-width: 720px;
   padding: 28px;
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
 }
 
@@ -40,14 +40,14 @@
 
 .champ label {
   font-size: 13px;
-  color: #374151;
+  color: #1f2937;
 }
 
 input,
 select,
 textarea {
   padding: 11px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #94a3b8;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
@@ -58,12 +58,12 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #1d4ed8;
+  border-color: #1e40af;
 }
 
 select:disabled {
-  background: #f3f4f6;
-  color: #9ca3af;
+  background: #e2e8f0;
+  color: #6b7280;
 }
 
 textarea {
@@ -76,21 +76,21 @@ textarea {
   align-items: center;
   gap: 6px;
   padding: 32px;
-  border: 2px dashed #d1d5db;
+  border: 2px dashed #94a3b8;
   border-radius: 10px;
   text-align: center;
   font-size: 13px;
-  color: #374151;
+  color: #1f2937;
   cursor: pointer;
 }
 
 .zone-depot small {
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .zone-depot.survol {
-  border-color: #1d4ed8;
-  background: #f5f9ff;
+  border-color: #1e40af;
+  background: #e0ecff;
 }
 
 .zone-depot img {
@@ -104,7 +104,7 @@ textarea {
   justify-content: space-between;
   align-items: center;
   padding: 10px 12px;
-  background: #f5f7fb;
+  background: #e8edf5;
   border-radius: 8px;
   font-size: 13px;
   color: #111827;
@@ -139,7 +139,7 @@ textarea {
 
 .bouton {
   padding: 11px 20px;
-  background: #1d4ed8;
+  background: #1e40af;
   color: white;
   border: none;
   border-radius: 8px;
@@ -149,14 +149,14 @@ textarea {
 }
 
 .bouton:hover {
-  background: #1e40af;
+  background: #1e3a8a;
 }
 
 .bouton-clair {
   padding: 11px 20px;
   background: white;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  color: #1f2937;
+  border: 1px solid #94a3b8;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
@@ -170,6 +170,6 @@ textarea {
 }
 
 a {
-  color: #1d4ed8;
+  color: #1e40af;
   text-decoration: none;
 }

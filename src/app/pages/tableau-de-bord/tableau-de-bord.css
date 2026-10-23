@@ -46,7 +46,7 @@
   gap: 24px;
   margin-bottom: 24px;
   padding: 24px 32px;
-  background: #e0ecff;
+  background: #cfe0ff;
   border-radius: 12px;
 }
 
@@ -61,7 +61,7 @@
 .bandeau-bouton {
   display: inline-block;
   padding: 10px 18px;
-  background: #1d4ed8;
+  background: #1e40af;
   color: white;
   border-radius: 8px;
   font-size: 14px;
@@ -69,7 +69,7 @@
 }
 
 .bandeau-bouton:hover {
-  background: #1e40af;
+  background: #1e3a8a;
 }
 
 .bandeau-image {
@@ -85,7 +85,7 @@
 
 .bloc {
   background: white;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #cbd5e1;
   border-radius: 12px;
   padding: 24px;
 }
@@ -108,13 +108,13 @@
   flex-direction: column;
   gap: 4px;
   padding: 16px;
-  background: #f5f7fb;
+  background: #e8edf5;
   border-radius: 10px;
   text-decoration: none;
 }
 
 .acces-carte:hover {
-  background: #e0ecff;
+  background: #cfe0ff;
 }
 
 .acces-carte strong {
@@ -124,13 +124,13 @@
 
 .acces-carte span {
   font-size: 12px;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 .actu {
   padding-bottom: 16px;
   margin-bottom: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .actu:last-child {
@@ -147,12 +147,12 @@
 .actu p {
   margin: 4px 0;
   font-size: 13px;
-  color: #4b5563;
+  color: #374151;
 }
 
 .actu small {
   font-size: 12px;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 /* ----- Mobile ----- */

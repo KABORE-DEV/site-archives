@@ -8,7 +8,7 @@
   color: white;
   background-color: #1e3a8a;
   background-image:
-    linear-gradient(135deg, rgba(10, 30, 90, 0.85), rgba(10, 30, 90, 0.45)),
+    linear-gradient(rgba(10, 30, 90, 0.7), rgba(10, 30, 90, 0.7)),
     url('/images/fond-connexion.jpg');
   background-size: cover;
   background-position: center;
@@ -59,53 +59,11 @@
   line-height: 1.2;
 }
 
-.accent {
-  display: block;
-  color: #93c5fd;
-}
-
-.trait {
-  width: 70px;
-  height: 4px;
-  margin: 24px 0;
-  border-radius: 2px;
-  background: #60a5fa;
-}
-
 .bienvenue p {
   margin: 0 0 28px;
   font-size: 16px;
   line-height: 1.7;
   opacity: 0.9;
-}
-
-.points {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.points li {
-  position: relative;
-  padding-left: 28px;
-  margin-bottom: 12px;
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-.points li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(96, 165, 250, 0.3);
-  color: #bfdbfe;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
 }
 
 /* ----- Carte blanche ----- */
@@ -115,8 +73,7 @@
   background: white;
   color: #1f2937;
   padding: 36px;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
 }
 
 .carte h2 {
@@ -127,7 +84,7 @@
 .sous-titre {
   margin: 0 0 24px;
   font-size: 14px;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 /* ----- Formulaire ----- */
@@ -146,23 +103,21 @@ form {
 .champ label {
   font-size: 13px;
   font-weight: 600;
-  color: #374151;
+  color: #1f2937;
 }
 
 input[type='text'],
 input[type='password'] {
   padding: 13px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #94a3b8;
   border-radius: 10px;
   font-size: 14px;
-  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input[type='text']:focus,
 input[type='password']:focus {
   outline: none;
-  border-color: #1d4ed8;
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+  border-color: #1e40af;
 }
 
 .options {
@@ -176,12 +131,12 @@ input[type='password']:focus {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: #374151;
+  color: #1f2937;
   cursor: pointer;
 }
 
 a {
-  color: #1d4ed8;
+  color: #1e40af;
   font-size: 13px;
   text-decoration: none;
 }
@@ -192,29 +147,24 @@ a:hover {
 
 .bouton {
   padding: 13px;
-  background: #1d4ed8;
+  background: #1e40af;
   color: white;
   border: none;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
 }
 
 .bouton:hover {
-  background: #1e40af;
-}
-
-.bouton:active {
-  transform: scale(0.98);
+  background: #1e3a8a;
 }
 
 .pied {
   margin: 24px 0 0;
   text-align: center;
   font-size: 13px;
-  color: #6b7280;
+  color: #4b5563;
 }
 
 /* ----- Mobile ----- */
@@ -239,15 +189,7 @@ a:hover {
     font-size: 24px;
   }
 
- .trait {
-  margin: 16px auto;
-}
-
-.points {
-  display: none;
-}
-
-  .carte {
+   .carte {
     padding: 24px;
   }
   
@@ -269,7 +211,7 @@ a:hover {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #1d4ed8;
+  color: #1e40af;
   font-size: 13px;
   cursor: pointer;
 }
